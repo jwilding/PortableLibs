@@ -1,0 +1,1 @@
+FOR /r %x IN (*.pack) DO ( .\bin\unpack200 -r "%x" "%~dx%~px%~nx.jar" )
