@@ -1,0 +1,3 @@
+[submodule "Phonegap/node_modules/npm"]
+	path = Phonegap/node_modules/npm
+	url = https://github.com/npm/npm.git
