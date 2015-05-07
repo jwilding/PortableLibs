@@ -1,0 +1,4 @@
+SET "LIBS_ANDROID_SDK=%~dp0android-sdk"
+
+%PATH_APPEND% "%LIBS_ANDROID_SDK%\platform-tools" "%LIBS_ANDROID_SDK%\build-tools\22.0.1"
+%PATH_SET% "ANDROID_HOME=%LIBS_ANDROID_SDK%"

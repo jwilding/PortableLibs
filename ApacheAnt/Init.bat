@@ -1,0 +1,4 @@
+SET "LIBS_ANT=%~dp0apache-ant-1.9.4"
+
+%PATH_APPEND% "%LIBS_ANT%\bin"
+%PATH_SET% "ANT_HOME=%LIBS_ANT%"
