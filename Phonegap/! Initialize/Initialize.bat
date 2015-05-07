@@ -1,6 +1,8 @@
 @ECHO ON
 PUSHD ".."
-CALL npm install -g phonegap cordova-gen pgbuild
+CALL npm cache clean
+CALL npm cache clean
+CALL npm install -g
 CALL "%~dp0overrides\override.bat"
 POPD
 PAUSE

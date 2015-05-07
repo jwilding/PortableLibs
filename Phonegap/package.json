@@ -1,0 +1,25 @@
+{
+  "name": "PortableLibs",
+  "version": "0.0.1",
+  "author": "Joshua Wilding <joshua_wilding@hotmail.com>",
+  "contributors": [
+    {
+      "name": "Joshua Wilding",
+      "email": "joshua_wilding@hotmail.com"
+    }
+  ],
+  "description": "",
+  "private": true,
+  "preferGlobal": true,
+  "engines": {
+    "node": ">=0.12.x"
+  },
+  "dependencies": {
+    "cordova-gen": "^1.0.6",
+    "pgbuild": "^0.2.2",
+    "phonegap": "^5.0.0-0.27.1"
+  },
+  "scripts": {
+    "pretest": "npm install"
+  }
+}
