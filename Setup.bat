@@ -1,6 +1,6 @@
 @ECHO OFF
 
-CALL :CHECK_CONSOLE "%~0"
+CALL :CHECK_CONSOLE "%~0" %1
 TITLE Libs Prompt
 MODE CON: COLS=116 LINES=1000
 
@@ -29,11 +29,13 @@ GOTO :EOF
 
 :: ---------------------------------
 
+
 :MENUHEAD
 ECHO.------------------------------------------------------------------------
 ECHO. %*
 ECHO.------------------------------------------------------------------------
 GOTO :EOF
+
 
 :SETUP
 IF EXIST "%~dp0%~1\Init.bat" (
@@ -44,12 +46,23 @@ IF EXIST "%~dp0%~1\Init.bat" (
 )
 GOTO :EOF
 
+
 :CHECK_CONSOLE
-ECHO %CMDCMDLINE% | FINDSTR /IRC:"cmd.exe.*/C." | FINDSTR /IC:%1  >NUL 2>&1
+IF "%MAXIMIZED%" == "1" GOTO :EOF
+
+ECHO %CMDCMDLINE% | FINDSTR /IRC:"cmd.*/C." >NUL 2>&1
+IF NOT %ERRORLEVEL% == 0 GOTO :EOF
+
+SET MAXIMIZED=1
+
+ECHO %CMDCMDLINE% | FINDSTR /IC:%1 >NUL 2>&1
 IF %ERRORLEVEL% == 0 (
-	CMD /K %1
-	EXIT
+	START "" /MAX %CMDCMDLINE:/C=/K%
+) ELSE (
+	START "" /MAX %CMDCMDLINE%
 )
+EXIT
 GOTO :EOF
+
 
 :: ---------------------------------
